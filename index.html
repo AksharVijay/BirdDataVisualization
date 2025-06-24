@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Bird Species Visualization Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <ul class="nav-links">
+                    <li><a href="#" id="linkAbout">About</a></li>
+                    <li><a href="Cleaned_BirdData_15June.csv" download>Dataset</a></li>
+                    <li><a href="Bird Species Report.pdf" download>Report</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div id="modalAbout" class="modal">
+            <div class="modal-content">
+                <span class="close-Btn" id="closeBtn">&times;</span>
+                <h2>About</h2>
+                <p>&nbsp;</p>
+                <p>Bird Sighting Data Visualization is an interactive web application that represents the Spacial - Temporal visualization of bird sightings. This enables the researchers to explore and analyse the various patterns in bird species sightings over time, seasons across the geographic locations. The raw data that was collected as a part of bird sighting observation was cleaned and converted to feed the data visualization technology so that clear pattern both spatially and temporally can be achieved for the research purpose.</p>
+            </div>
+        </div>
+        <header>
+            <h1> Bird Species Visualization Dashboard</h1>
+        </header>
+        <section class="birdFiltersSection">
+            <div class="birdFilters">
+                <label for="species-select">Select Bird Species:</label>
+                <select id="species-select">
+                    <option value="all">All Species</option>
+                </select>
+            </div>
+            <div class="birdFilters">
+                <label for="calendar-select">Select Date Range:</label>
+                <input type="date" id="calendar-select" placeholder="select the date" />
+            </div>
+            <div class="birdFilters">
+                <label for="season-select">Select Season:</label>
+                <select id="season-select">
+                    <option value="all">All Seasons</option>
+                    <option value="winter">Winter (December-February)</option>
+                    <option value="spring">Spring (March-May)</option>
+                    <option value="summer">Summer (June-August)</option>
+                    <option value="fall">Fall (September-November)</option>
+                </select>
+            </div>
+            <div class="birdFilters">
+                <label for="snow-select">Select Snow Depth:</label>
+                <select id="snow-select">
+                    <option value="all">All Snow Depths</option>
+                    <option value="none">No Snow (0 cm)</option>
+                    <option value="light">Light (1-5 cm)</option>
+                    <option value="moderate">Moderate (6-15 cm)</option>
+                    <option value="heavy">Heavy (15+ cm)</option>
+                </select>
+            </div>
+        </section>
+        <section class="birdVisualizationSection">
+            <div id="map-visualization-container">
+                <div id="map"></div>
+                <div id="birdMap-legend"></div>
+            </div>
+            <div class="birdChartVisualizationContainer">
+                <div id="chart">
+                    <h3>Species Count by Month</h3>
+                    <div id="line-chart"></div>
+                </div>
+                <div id="chart">
+                    <h3>Top Species</h3>
+                    <div id="bar-chart"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/default.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chroma-js@2.1.2/chroma.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
